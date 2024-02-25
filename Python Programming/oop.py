@@ -1,18 +1,29 @@
 # OOP = Object Oreinted Programming
-# class Dog
+# class ATM
 
-class Dog:
-  def __init__(d, name, age, specie):
-    d.name = name
-    d.age = age
-    d.specie = specie
+import random
 
-  def sitting(d):
-    print("I'm sitting now.")
+class ATM:
+  def __init__(self, account_name, bank_name, initial): 
+      self.account_name = account_name  
+      self.bank_name = bank_name
+      self.balance = initial
 
-  def get_older(d, year):
-    d.age +=  year
-    print(f"I'm getting older {year} year.")
+  def __str__(self):
+      return f'This is an account of {self.account_name}, bank: {self.bank_name}'
+  
+  # method 
+  def check_balance(self):
+      print(f'Balance: {self.balance} THB')
 
-dog1 = Dog("andy", 3, "chihuahua")
-print(dog1.name, dog1.age, dog1.specie)
+  def deposit(self, money):
+      self.balance += money # self.balance + money
+      print(f'Deposit successfully: your new balance: {self.balance} THB')
+    
+  def withdraw(self, money):
+      self.balance -= money
+      print(f'Withdraw successfully: your new balance: {self.balance} THB')
+
+  def get_OTP(self):
+      otp = random.randint(1000, 9999)
+      print(f'OTP: {otp} This OTP will expired in 2 minutes.')
