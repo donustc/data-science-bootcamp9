@@ -1,0 +1,18 @@
+install.packages("RPostgreSQL")
+library(RPostgreSQL)
+
+con <- dbConnect(PostgreSQL(),
+  host = "floppy.db.elephantsql.com",
+  dbname = "ctrsqpdy",
+  user = "ctrsqpdy",
+  password = "DSveeswZAUSYeGM9vHlKpFaLFUNborYo",
+  port = 5432
+  )
+
+# write table
+dbWriteTable(con, "mtcars", mtcars)
+
+dbListTables(con)
+
+# get data
+dbGetQuery(con, "select * from mtcars")
